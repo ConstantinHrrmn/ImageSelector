@@ -1,0 +1,15 @@
+C:\Users\Constantin\Desktop\WaviewPhotoSelector\WaviewPhotoSelector\bin\Debug\net6.0\WaviewPhotoSelector.exe
+C:\Users\Constantin\Desktop\WaviewPhotoSelector\WaviewPhotoSelector\bin\Debug\net6.0\WaviewPhotoSelector.deps.json
+C:\Users\Constantin\Desktop\WaviewPhotoSelector\WaviewPhotoSelector\bin\Debug\net6.0\WaviewPhotoSelector.runtimeconfig.json
+C:\Users\Constantin\Desktop\WaviewPhotoSelector\WaviewPhotoSelector\bin\Debug\net6.0\WaviewPhotoSelector.dll
+C:\Users\Constantin\Desktop\WaviewPhotoSelector\WaviewPhotoSelector\bin\Debug\net6.0\WaviewPhotoSelector.pdb
+C:\Users\Constantin\Desktop\WaviewPhotoSelector\WaviewPhotoSelector\obj\Debug\net6.0\WaviewPhotoSelector.csproj.AssemblyReference.cache
+C:\Users\Constantin\Desktop\WaviewPhotoSelector\WaviewPhotoSelector\obj\Debug\net6.0\WaviewPhotoSelector.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Constantin\Desktop\WaviewPhotoSelector\WaviewPhotoSelector\obj\Debug\net6.0\WaviewPhotoSelector.AssemblyInfoInputs.cache
+C:\Users\Constantin\Desktop\WaviewPhotoSelector\WaviewPhotoSelector\obj\Debug\net6.0\WaviewPhotoSelector.AssemblyInfo.cs
+C:\Users\Constantin\Desktop\WaviewPhotoSelector\WaviewPhotoSelector\obj\Debug\net6.0\WaviewPhotoSelector.csproj.CoreCompileInputs.cache
+C:\Users\Constantin\Desktop\WaviewPhotoSelector\WaviewPhotoSelector\obj\Debug\net6.0\WaviewPhotoSelector.dll
+C:\Users\Constantin\Desktop\WaviewPhotoSelector\WaviewPhotoSelector\obj\Debug\net6.0\refint\WaviewPhotoSelector.dll
+C:\Users\Constantin\Desktop\WaviewPhotoSelector\WaviewPhotoSelector\obj\Debug\net6.0\WaviewPhotoSelector.pdb
+C:\Users\Constantin\Desktop\WaviewPhotoSelector\WaviewPhotoSelector\obj\Debug\net6.0\WaviewPhotoSelector.genruntimeconfig.cache
+C:\Users\Constantin\Desktop\WaviewPhotoSelector\WaviewPhotoSelector\obj\Debug\net6.0\ref\WaviewPhotoSelector.dll
