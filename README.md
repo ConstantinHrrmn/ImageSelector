@@ -4,8 +4,8 @@ This app is here to match photos that were taken in JPG and RAW. The main goal i
 ## Usage
 To use the app, just launch the .exe and answer the following questions :
 
-b = before you send the images to the client 
-f = find the images in the list of number the client sended to you 
+- b = before you send the images to the client 
+- f = find the images in the list of number the client sended to you 
 
 BEFORE 
 
