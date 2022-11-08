@@ -1,0 +1,15 @@
+/Users/luxra/Documents/GitHub/ImageSelector/WaviewPhotoSelector/WaviewPhotoSelector/bin/Release/net6.0/WaviewPhotoSelector
+/Users/luxra/Documents/GitHub/ImageSelector/WaviewPhotoSelector/WaviewPhotoSelector/bin/Release/net6.0/WaviewPhotoSelector.deps.json
+/Users/luxra/Documents/GitHub/ImageSelector/WaviewPhotoSelector/WaviewPhotoSelector/bin/Release/net6.0/WaviewPhotoSelector.runtimeconfig.json
+/Users/luxra/Documents/GitHub/ImageSelector/WaviewPhotoSelector/WaviewPhotoSelector/bin/Release/net6.0/WaviewPhotoSelector.dll
+/Users/luxra/Documents/GitHub/ImageSelector/WaviewPhotoSelector/WaviewPhotoSelector/bin/Release/net6.0/WaviewPhotoSelector.pdb
+/Users/luxra/Documents/GitHub/ImageSelector/WaviewPhotoSelector/WaviewPhotoSelector/obj/Release/net6.0/WaviewPhotoSelector.csproj.AssemblyReference.cache
+/Users/luxra/Documents/GitHub/ImageSelector/WaviewPhotoSelector/WaviewPhotoSelector/obj/Release/net6.0/WaviewPhotoSelector.GeneratedMSBuildEditorConfig.editorconfig
+/Users/luxra/Documents/GitHub/ImageSelector/WaviewPhotoSelector/WaviewPhotoSelector/obj/Release/net6.0/WaviewPhotoSelector.AssemblyInfoInputs.cache
+/Users/luxra/Documents/GitHub/ImageSelector/WaviewPhotoSelector/WaviewPhotoSelector/obj/Release/net6.0/WaviewPhotoSelector.AssemblyInfo.cs
+/Users/luxra/Documents/GitHub/ImageSelector/WaviewPhotoSelector/WaviewPhotoSelector/obj/Release/net6.0/WaviewPhotoSelector.csproj.CoreCompileInputs.cache
+/Users/luxra/Documents/GitHub/ImageSelector/WaviewPhotoSelector/WaviewPhotoSelector/obj/Release/net6.0/WaviewPhotoSelector.dll
+/Users/luxra/Documents/GitHub/ImageSelector/WaviewPhotoSelector/WaviewPhotoSelector/obj/Release/net6.0/refint/WaviewPhotoSelector.dll
+/Users/luxra/Documents/GitHub/ImageSelector/WaviewPhotoSelector/WaviewPhotoSelector/obj/Release/net6.0/WaviewPhotoSelector.pdb
+/Users/luxra/Documents/GitHub/ImageSelector/WaviewPhotoSelector/WaviewPhotoSelector/obj/Release/net6.0/WaviewPhotoSelector.genruntimeconfig.cache
+/Users/luxra/Documents/GitHub/ImageSelector/WaviewPhotoSelector/WaviewPhotoSelector/obj/Release/net6.0/ref/WaviewPhotoSelector.dll

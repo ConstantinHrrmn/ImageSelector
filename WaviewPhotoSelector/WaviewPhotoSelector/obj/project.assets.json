@@ -8,26 +8,24 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Constantin\\.nuget\\packages\\": {}
+    "/Users/luxra/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Constantin\\Documents\\GitHub\\ImageSelector\\WaviewPhotoSelector\\WaviewPhotoSelector\\WaviewPhotoSelector.csproj",
+      "projectUniqueName": "/Users/luxra/Documents/GitHub/ImageSelector/WaviewPhotoSelector/WaviewPhotoSelector/WaviewPhotoSelector.csproj",
       "projectName": "WaviewPhotoSelector",
-      "projectPath": "C:\\Users\\Constantin\\Documents\\GitHub\\ImageSelector\\WaviewPhotoSelector\\WaviewPhotoSelector\\WaviewPhotoSelector.csproj",
-      "packagesPath": "C:\\Users\\Constantin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Constantin\\Documents\\GitHub\\ImageSelector\\WaviewPhotoSelector\\WaviewPhotoSelector\\obj\\",
+      "projectPath": "/Users/luxra/Documents/GitHub/ImageSelector/WaviewPhotoSelector/WaviewPhotoSelector/WaviewPhotoSelector.csproj",
+      "packagesPath": "/Users/luxra/.nuget/packages/",
+      "outputPath": "/Users/luxra/Documents/GitHub/ImageSelector/WaviewPhotoSelector/WaviewPhotoSelector/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Constantin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/luxra/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -60,7 +58,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.300/RuntimeIdentifierGraph.json"
       }
     }
   }
