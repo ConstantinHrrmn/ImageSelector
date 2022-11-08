@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Constantin\\Desktop\\WaviewPhotoSelector\\WaviewPhotoSelector\\WaviewPhotoSelector.csproj": {}
+    "C:\\Users\\Constantin\\Documents\\GitHub\\ImageSelector\\WaviewPhotoSelector\\WaviewPhotoSelector\\WaviewPhotoSelector.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Constantin\\Desktop\\WaviewPhotoSelector\\WaviewPhotoSelector\\WaviewPhotoSelector.csproj": {
+    "C:\\Users\\Constantin\\Documents\\GitHub\\ImageSelector\\WaviewPhotoSelector\\WaviewPhotoSelector\\WaviewPhotoSelector.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Constantin\\Desktop\\WaviewPhotoSelector\\WaviewPhotoSelector\\WaviewPhotoSelector.csproj",
+        "projectUniqueName": "C:\\Users\\Constantin\\Documents\\GitHub\\ImageSelector\\WaviewPhotoSelector\\WaviewPhotoSelector\\WaviewPhotoSelector.csproj",
         "projectName": "WaviewPhotoSelector",
-        "projectPath": "C:\\Users\\Constantin\\Desktop\\WaviewPhotoSelector\\WaviewPhotoSelector\\WaviewPhotoSelector.csproj",
+        "projectPath": "C:\\Users\\Constantin\\Documents\\GitHub\\ImageSelector\\WaviewPhotoSelector\\WaviewPhotoSelector\\WaviewPhotoSelector.csproj",
         "packagesPath": "C:\\Users\\Constantin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Constantin\\Desktop\\WaviewPhotoSelector\\WaviewPhotoSelector\\obj\\",
+        "outputPath": "C:\\Users\\Constantin\\Documents\\GitHub\\ImageSelector\\WaviewPhotoSelector\\WaviewPhotoSelector\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Constantin\\AppData\\Roaming\\NuGet\\NuGet.Config",

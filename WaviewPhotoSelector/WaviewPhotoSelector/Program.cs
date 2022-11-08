@@ -242,6 +242,7 @@ void FindFiles()
 {
     string main_path = "";
     string raw_path = "";
+    
     string selected_path = "";
     string not_selected_path = "";
     
@@ -249,29 +250,22 @@ void FindFiles()
 
     ChangeConsoleColor(ConsoleColor.White);
     // On demande à l'utilisateur de rentrer le chemin du dossier parent avec les photos
-    Console.Write("Enter the path of the main folder : ");
+    Console.Write("Enter the path of the main folder of the camera : ");
     main_path = ReadLine();
 
-    // On vérifie si le chemin existe
-    if (Directory.Exists(main_path))
+    raw_path = Path.Combine(main_path, "RAW");
+    if (!Directory.Exists(raw_path))
     {
-        // On vérifie si le dossier RAW existe
-        raw_path = Path.Combine(main_path, "RAW");
-        if (!Directory.Exists(raw_path))
-        {
-            do
-            {
-                ChangeConsoleColor(ConsoleColor.Red);
-                Console.WriteLine("The path RAW doesn't exist. Please try again.");
+        ChangeConsoleColor(ConsoleColor.Red);
+        Console.WriteLine("The path RAW doesn't exist. No folders found.");
+        return;
+    }
 
-                ChangeConsoleColor(ConsoleColor.White);
-                Console.Write("Enter the path of the RAW folder : ");
-                raw_path = ReadLine();
+    // On vérifie si le chemin existe
+    if (Directory.Exists(raw_path))
+    {
 
-            } while (!Directory.Exists(raw_path));
-        }
-
-        selected_path = Path.Combine(raw_path, "SELECTED");
+        selected_path = Path.Combine(main_path, "SELECTED");
         if (!Directory.Exists(selected_path))
             Directory.CreateDirectory(selected_path);
 
