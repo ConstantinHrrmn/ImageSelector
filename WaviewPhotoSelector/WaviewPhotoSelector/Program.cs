@@ -1,5 +1,7 @@
 ﻿#region Variables d'affichage
 
+using System.IO;
+
 string MAIN_MENU_STRING = 
     "[BEFORE SENDING] : Check link between RAW and JPG, rename files and prepare folders to send. " +
     "\n[FIND FILES] : Get all selected photos from a list of photos. " +
@@ -80,13 +82,62 @@ void MakeAction(string input)
     switch (input.ToLower())
     {
         case "b":
-            BeforeSending();
+            B();
+            //BeforeSending();
             break;
         case "f":
             FindFiles();
             break;
         default:
             break;
+    }
+}
+
+void B()
+{
+    string main_path = "";
+
+    ChangeConsoleColor(ConsoleColor.White);
+    // On demande à l'utilisateur de rentrer le chemin du dossier parent avec les photos
+    Console.Write("Enter the path of the main cameras IMAGES folder : ");
+    main_path = ReadLine();
+
+    // On vérifie si le chemin existe
+    if (Directory.Exists(main_path))
+    {
+        string[] directories = Directory.GetDirectories(main_path);
+        string thumbnail_path = Path.Combine(main_path, "thumbnails");
+
+        if (!Directory.Exists(thumbnail_path))
+            Directory.CreateDirectory(thumbnail_path);
+
+        foreach (string directory  in directories)
+        {
+            if (directory == "thumbnails")
+                break;
+
+            string jpg_path = Path.Combine(main_path, directory, "JPG");
+            string raw_path = Path.Combine(main_path, directory, "RAW");
+            string main_camera_path = Path.Combine(main_path, directory);
+
+            if (Directory.Exists(jpg_path) && Directory.Exists(raw_path))
+            {
+                Console.WriteLine("FUCK OK");
+                BeforeSending(main_camera_path, jpg_path, raw_path, thumbnail_path);
+            }
+            else
+            {
+                ChangeConsoleColor(ConsoleColor.Red);
+                Console.WriteLine("Missing JPG or RAW folder in " + directory);
+                ChangeConsoleColor(ConsoleColor.White);
+            }
+        }
+    }
+    else
+    {
+        ChangeConsoleColor(ConsoleColor.Red);
+        Console.WriteLine("Path not found...");
+        ChangeConsoleColor(ConsoleColor.White);
     }
 }
 
@@ -104,61 +155,20 @@ void ChangeConsoleColor(ConsoleColor color)
 /// Si les fichiers correspondent, alors on les renomme en fonction de la caméra. 
 /// Sinon, les fichiers RAW sans JPG et les fichiers JPG sans fichiers RAW sont placés dans des dossier "poubelle"
 /// </summary>
-void BeforeSending()
+void BeforeSending(string main_path, string jpg_path, string raw_path, string thumbnail_path)
 {
-    string main_path = "";
-    string jpg_path = "";
-    string raw_path = "";
     
     string jpg_trash_path = "NO_RAW_MATCH";
     string raw_trash_path = "NO_JPG_MATCH";
-    
-
     int counter = 1;
 
     Console.Clear();
 
-    ChangeConsoleColor(ConsoleColor.White);
-    // On demande à l'utilisateur de rentrer le chemin du dossier parent avec les photos
-    Console.Write("Enter the path of the main folder : ");
-    main_path = ReadLine();
 
     // On vérifie si le chemin existe
     if (Directory.Exists(main_path))
     {
         string camera_name = Path.GetFileName(main_path);
-        
-        // On vérifie si le dossier JPG existe
-        jpg_path = Path.Combine(main_path, "JPG");
-        if (!Directory.Exists(jpg_path))
-        {
-            do
-            {
-                ChangeConsoleColor(ConsoleColor.Red);
-                Console.WriteLine("The path JPG doesn't exist. Please try again.");
-
-                ChangeConsoleColor(ConsoleColor.White);
-                Console.Write("Enter the path of the JPG folder : ");
-                jpg_path = ReadLine();
-
-            } while (!Directory.Exists(jpg_path));
-        }
-
-        // On vérifie si le dossier RAW existe
-        raw_path = Path.Combine(main_path, "RAW");
-        if (!Directory.Exists(raw_path))
-        {
-            do
-            {
-                ChangeConsoleColor(ConsoleColor.Red);
-                Console.WriteLine("The path RAW doesn't exist. Please try again.");
-
-                ChangeConsoleColor(ConsoleColor.White);
-                Console.Write("Enter the path of the RAW folder : ");
-                raw_path = ReadLine();
-
-            } while (!Directory.Exists(raw_path));
-        }
 
         // On supprime le fichier DS STORE de tous les dossiers
         DeleteDSStore(main_path);
@@ -197,8 +207,12 @@ void BeforeSending()
             else
             {
                 // Si le fichier existe on renomme le raw et le jpg en fonction de la caméra
-                File.Move(jpg_file, Path.Combine(jpg_path, camera_name + "_" + counter + Path.GetExtension(jpg_file)));
-                File.Move(raw_file, Path.Combine(raw_path, camera_name + "_" + counter + Path.GetExtension(raw_file)));
+                string new_jpg_path = Path.Combine(jpg_path, camera_name + "_" + counter + Path.GetExtension(jpg_file));
+                string new_raw_path = Path.Combine(raw_path, camera_name + "_" + counter + Path.GetExtension(raw_file));
+
+                File.Move(jpg_file, new_jpg_path, true);
+                File.Move(raw_file, new_raw_path, true);
+
                 // On incrémente le compteur
                 counter++;
             }
@@ -230,8 +244,6 @@ void BeforeSending()
         ChangeConsoleColor(ConsoleColor.Red);
         Console.WriteLine("The path doesn't exist. Please try again. Press ENTER");
         Console.ReadKey();
-        // On relance la méthode
-        BeforeSending();
     }
 }
 
