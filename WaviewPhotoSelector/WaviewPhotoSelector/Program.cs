@@ -122,7 +122,6 @@ void B()
 
             if (Directory.Exists(jpg_path) && Directory.Exists(raw_path))
             {
-                Console.WriteLine("FUCK OK");
                 BeforeSending(main_camera_path, jpg_path, raw_path, thumbnail_path);
             }
             else
@@ -213,6 +212,8 @@ void BeforeSending(string main_path, string jpg_path, string raw_path, string th
                 File.Move(jpg_file, new_jpg_path, true);
                 File.Move(raw_file, new_raw_path, true);
 
+                CreateThumbnail(new_jpg_path, thumbnail_path, 25);
+
                 // On incrémente le compteur
                 counter++;
             }
@@ -244,6 +245,20 @@ void BeforeSending(string main_path, string jpg_path, string raw_path, string th
         ChangeConsoleColor(ConsoleColor.Red);
         Console.WriteLine("The path doesn't exist. Please try again. Press ENTER");
         Console.ReadKey();
+    }
+}
+
+/// <summary>
+/// Create a thumbnail image in the thumbnail folder of a % of the size of the original image
+/// </summary>
+void CreateThumbnail(string photo_path, string thumbnail_path, int ratio)
+{
+    if (File.Exists(photo_path))
+    {
+        if (Directory.Exists(thumbnail_path))
+        {
+
+        }
     }
 }
 
