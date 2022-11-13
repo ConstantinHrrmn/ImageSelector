@@ -1,11 +1,14 @@
-﻿#region Variables d'affichage
+﻿using System.Drawing;
 
-using System.IO;
+#region Variables d'affichage
+
+
 
 string MAIN_MENU_STRING = 
     "[BEFORE SENDING] : Check link between RAW and JPG, rename files and prepare folders to send. " +
-    "\n[FIND FILES] : Get all selected photos from a list of photos. " +
-    "\nEnter your choice. Before sending [b] or Find files [f] : ";
+    "\n[FIND FILES MESSAGE] : Get all selected photos from a list of photos. Recieved by message" +
+    "\n[FIND FILES SERVER] : Get all selected photos on the server"+
+    "\n\nEnter your choice:\n\n-Before sending [b]\n-Find files from message [f]\n-Find files from server [s]\n\nChoice [b / f / s]: ";
 
 string END_STRING = 
     "DONE. Restart [r] or Quit [q] : ";
@@ -17,6 +20,8 @@ string LIST_INPUT =
     "Please paste list of image numbers to find separated by ','. (ex : 1, 3, 6) : ";
 
 #endregion
+
+
 
 // Toutes les actions possibles par l'utilisateur.
 // Ne pas oublier d'ajouter l'action dans la fonction "MakeAction" afin de pouvoir l'utiliser.
@@ -88,6 +93,9 @@ void MakeAction(string input)
         case "f":
             FindFiles();
             break;
+        case "s":
+            FindFiles();
+            break;
         default:
             break;
     }
@@ -107,9 +115,37 @@ void B()
     {
         string[] directories = Directory.GetDirectories(main_path);
         string thumbnail_path = Path.Combine(main_path, "thumbnails");
+        double ratio = 0;
 
         if (!Directory.Exists(thumbnail_path))
             Directory.CreateDirectory(thumbnail_path);
+
+        ChangeConsoleColor(ConsoleColor.Green);
+        Console.WriteLine("Directory " + main_path + " is OK.");
+        ChangeConsoleColor(ConsoleColor.White);
+
+        Console.Write("Do you want to create thumbnails ? [y/n] : ");
+        string choice = ReadLine().ToLower();
+
+        if (choice == "y")
+        {
+            if (thumbnail_path != null)
+            {
+                Console.Write("Enter the ratio of the thumbnails (0 to 1) : ");
+                ratio = Convert.ToDouble(ReadLine());
+
+                if (double.IsNaN(ratio))
+                {
+                    ChangeConsoleColor(ConsoleColor.Red);
+                    Console.WriteLine("Wrong input... Ratio set to 0.2");
+                    ChangeConsoleColor(ConsoleColor.White);
+                    ratio = 0.2;
+                }
+                    
+            }
+        }
+
+        Console.Clear();
 
         foreach (string directory  in directories)
         {
@@ -122,7 +158,12 @@ void B()
 
             if (Directory.Exists(jpg_path) && Directory.Exists(raw_path))
             {
-                BeforeSending(main_camera_path, jpg_path, raw_path, thumbnail_path);
+                
+
+                if (choice == "y")
+                    BeforeSending(main_camera_path, jpg_path, raw_path, thumbnail_path, ratio);
+                else
+                    BeforeSending(main_camera_path, jpg_path, raw_path, null, 0);
             }
             else
             {
@@ -131,6 +172,11 @@ void B()
                 ChangeConsoleColor(ConsoleColor.White);
             }
         }
+
+        string path_to_file = Path.GetFullPath(Directory.GetFiles(thumbnail_path)[0]);
+        string file_name = Path.GetFileName(path_to_file);
+        
+        File.Copy(path_to_file, path_to_file.Replace(file_name, "cover.JPG"), true);
     }
     else
     {
@@ -154,14 +200,12 @@ void ChangeConsoleColor(ConsoleColor color)
 /// Si les fichiers correspondent, alors on les renomme en fonction de la caméra. 
 /// Sinon, les fichiers RAW sans JPG et les fichiers JPG sans fichiers RAW sont placés dans des dossier "poubelle"
 /// </summary>
-void BeforeSending(string main_path, string jpg_path, string raw_path, string thumbnail_path)
+void BeforeSending(string main_path, string jpg_path, string raw_path, string thumbnail_path, double ratio)
 {
     
     string jpg_trash_path = "NO_RAW_MATCH";
     string raw_trash_path = "NO_JPG_MATCH";
     int counter = 1;
-
-    Console.Clear();
 
 
     // On vérifie si le chemin existe
@@ -184,6 +228,8 @@ void BeforeSending(string main_path, string jpg_path, string raw_path, string th
         
         if (!Directory.Exists(Path.Combine(jpg_path, jpg_trash_path)))
             Directory.CreateDirectory(Path.Combine(jpg_path, jpg_trash_path));
+
+        Console.WriteLine("Working on camera " + camera_name + "...");
 
         // On parcours toutes les images dans le dossier JPG
         foreach (string jpg_file in JPG_FILES)
@@ -212,7 +258,8 @@ void BeforeSending(string main_path, string jpg_path, string raw_path, string th
                 File.Move(jpg_file, new_jpg_path, true);
                 File.Move(raw_file, new_raw_path, true);
 
-                CreateThumbnail(new_jpg_path, thumbnail_path, 25);
+                if (thumbnail_path != null)
+                    CreateThumbnail(new_jpg_path, thumbnail_path, ratio, null);
 
                 // On incrémente le compteur
                 counter++;
@@ -239,6 +286,10 @@ void BeforeSending(string main_path, string jpg_path, string raw_path, string th
                 File.Move(raw_file, Path.Combine(raw_path, raw_trash_path, Path.GetFileName(raw_file)));
             }
         }
+
+        ChangeConsoleColor(ConsoleColor.Cyan);
+        Console.WriteLine("Camera " + camera_name + " : " + counter + " photos" + " --> DONE.");
+        ChangeConsoleColor(ConsoleColor.White);
     }
     else
     {
@@ -251,15 +302,32 @@ void BeforeSending(string main_path, string jpg_path, string raw_path, string th
 /// <summary>
 /// Create a thumbnail image in the thumbnail folder of a % of the size of the original image
 /// </summary>
-void CreateThumbnail(string photo_path, string thumbnail_path, int ratio)
+void CreateThumbnail(string photo_path, string thumbnail_path, double ratio, string new_name)
 {
     if (File.Exists(photo_path))
     {
         if (Directory.Exists(thumbnail_path))
         {
-
+            ResizeImageOnRatio(Image.FromFile(photo_path), ratio).Save(Path.Combine(thumbnail_path, (new_name != null ? new_name : Path.GetFileName(photo_path))));
         }
     }
+}
+
+Bitmap ResizeImageOnRatio(Image source_image, double ratio)
+{
+    if (ratio < 0 || ratio > 1)
+        ratio = 0.5;
+
+    int new_width = (int)(source_image.Width * ratio);
+    int new_height = (int)(source_image.Height * ratio);
+
+    Bitmap resized_image = new Bitmap(new_width, new_height);
+    using (Graphics g = Graphics.FromImage(resized_image))
+    {
+        g.DrawImage(source_image, 0, 0, new_width, new_height);
+    }
+
+    return resized_image;
 }
 
 /// <summary>
@@ -364,8 +432,6 @@ void FindFiles()
         {
             File.Move(raw_file, Path.Combine(not_selected_path, Path.GetFileName(raw_file)));
         }
-
-
     }
     else
     {
@@ -375,6 +441,11 @@ void FindFiles()
         // On relance la méthode
         FindFiles();
     }
+}
+
+void FindFilesServer(string main_path, string text_list_path)
+{
+    
 }
 
 /// <summary>

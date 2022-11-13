@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "8oIVCQIw6bXwZBKybZnBryUEYL0Ev4gDPLOsAEmGo+qgztBPYPZmcwcDL+MY97aUrvazIsIydwxPHhseka2aGg==",
+  "dgSpecHash": "k9XdIRPLcFgS/43iz6fRgONSh2YAHCXFms7/9o7/OEoD41I3e88P25eI36DOQt82Gy2f6lVBe96k/essQPJfsg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Constantin\\Documents\\GitHub\\ImageSelector\\WaviewPhotoSelector\\WaviewPhotoSelector\\WaviewPhotoSelector.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Constantin\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
+    "C:\\Users\\Constantin\\.nuget\\packages\\system.drawing.common\\7.0.0\\system.drawing.common.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
