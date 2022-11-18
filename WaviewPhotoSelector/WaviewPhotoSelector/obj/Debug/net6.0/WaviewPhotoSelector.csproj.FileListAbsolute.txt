@@ -49,3 +49,5 @@ C:\Users\Constantin\Documents\GitHub\ImageSelector\WaviewPhotoSelector\WaviewPho
 C:\Users\Constantin\Documents\GitHub\ImageSelector\WaviewPhotoSelector\WaviewPhotoSelector\obj\Debug\net6.0\WaviewPhotoSelector.pdb
 C:\Users\Constantin\Documents\GitHub\ImageSelector\WaviewPhotoSelector\WaviewPhotoSelector\obj\Debug\net6.0\WaviewPhotoSelector.genruntimeconfig.cache
 C:\Users\Constantin\Documents\GitHub\ImageSelector\WaviewPhotoSelector\WaviewPhotoSelector\obj\Debug\net6.0\ref\WaviewPhotoSelector.dll
+C:\Users\Constantin\Documents\GitHub\ImageSelector\WaviewPhotoSelector\WaviewPhotoSelector\bin\Debug\net6.0\Renci.SshNet.dll
+C:\Users\Constantin\Documents\GitHub\ImageSelector\WaviewPhotoSelector\WaviewPhotoSelector\bin\Debug\net6.0\SshNet.Security.Cryptography.dll

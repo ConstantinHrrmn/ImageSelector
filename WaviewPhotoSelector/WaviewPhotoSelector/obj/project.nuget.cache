@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "k9XdIRPLcFgS/43iz6fRgONSh2YAHCXFms7/9o7/OEoD41I3e88P25eI36DOQt82Gy2f6lVBe96k/essQPJfsg==",
+  "dgSpecHash": "ypfknOZETUdXaZ6GmNOTW97p52RC7Z6hc1U7RjvlwwFF1PuLqW4ENGRIwYvDIC09JTUaSTut7kY8dUm/CEUQOw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Constantin\\Documents\\GitHub\\ImageSelector\\WaviewPhotoSelector\\WaviewPhotoSelector\\WaviewPhotoSelector.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Constantin\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
+    "C:\\Users\\Constantin\\.nuget\\packages\\ssh.net\\2020.0.2\\ssh.net.2020.0.2.nupkg.sha512",
+    "C:\\Users\\Constantin\\.nuget\\packages\\sshnet.security.cryptography\\1.3.0\\sshnet.security.cryptography.1.3.0.nupkg.sha512",
     "C:\\Users\\Constantin\\.nuget\\packages\\system.drawing.common\\7.0.0\\system.drawing.common.7.0.0.nupkg.sha512"
   ],
   "logs": []
